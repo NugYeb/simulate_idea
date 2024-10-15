@@ -1,0 +1,13 @@
+Name,Value,Class
+kind_index,1x100,double
+map2d,257x319,double
+mapx,319x257,double
+mapy,319x257,double
+maxjuli,20,double
+maxqzxidaxm,15,double
+minjuli,15,double
+minqzxidaxm,10,double
+numqzxi,100,double
+qzxi,1x6,double
+x,1x100,double
+y,1x100,double
