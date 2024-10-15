@@ -1,24 +1,25 @@
+%% 初始化
 clc;
 clear;
 close all;
 % 以区块为单位
 
+%% 基础数据
 tic
-numqzxi = 100;
-maxjuli = 20;
-minjuli = 15;
+numqzxi = 1000;     % 群系数量
+maxjuli = 50;       % 群系间距离最值
+minjuli = 40;
 
-qzxi = [1, 2, 3, 4, 5, 6];  % 
+qzxi = [1, 2, 3, 4, 5, 6];  % 群系编号
 
-maxqzxidaxm = 15;
-minqzxidaxm = 10;
+maxqzxidaxm = 60;   % 群系大小最值
+minqzxidaxm = 30;
 
-[x, y] = createpoints(numqzxi, maxjuli, minjuli);
-disp(toc)
-kind_index = setkind(numqzxi, length(qzxi));
+[x, y] = createpoints(numqzxi, maxjuli, minjuli);   % 生成群系中心坐标
 
-map2d = spreadqzxi(x, y, kind_index, maxqzxidaxm, minqzxidaxm);
-disp(toc)
+kind_index = setkind(numqzxi, length(qzxi));        % 生成群系类型
+
+map2d = spreadqzxi(x, y, kind_index, maxqzxidaxm, minqzxidaxm); % 生成二维地图
 
 %% figure
 figure(1);

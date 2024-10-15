@@ -1,4 +1,7 @@
-function map2d = spreadqzxi(x, y, kind_index, maxdaxm, mindaxm)
+function map2d = spreadqzxi(x, y, kind_index, maxdaxm, mindaxm, setedge)
+    if nargin < 6
+        setedge = 1;
+    end
 
     num = length(kind_index);
     if num ~= length(x) || num ~= length(y)
@@ -27,7 +30,12 @@ function map2d = spreadqzxi(x, y, kind_index, maxdaxm, mindaxm)
         circleRadius = randi([mindaxm, maxdaxm]);   % 圆的半径
         distances = sqrt(sum((temppoints - circleCenter).^2, 2));   % 计算每个点到圆心的距离
         for m = 1:1:length(distances)
-            if distances(m)<circleRadius
+            if setedge == 1
+                s_distence = randi([mindaxm, maxdaxm]);
+            else
+                s_distence = circleRadius;
+            end
+            if distances(m)<s_distence
                 tempmapx = temppoints(m, 1) - (min(x)-maxdaxm) + 1;
                 tempmapy = temppoints(m, 2) - (min(y)-maxdaxm) + 1;
                 map2d(tempmapx, tempmapy) = kind_index(i);
